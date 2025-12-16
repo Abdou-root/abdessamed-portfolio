@@ -5,72 +5,121 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Abdessamad Grine - Junior Software Engineer portfolio. Showcasing projects in AI, web development, and game development. Explore my work and blog.">
+    <meta name="keywords" content="software engineer, web developer, AI developer, portfolio, Abdessamad Grine, JavaScript, Python, React">
+    <meta name="author" content="Abdessamad Grine">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://abdessamadgrine.com/">
+    <meta property="og:title" content="Abdessamad Grine - Software Engineer Portfolio">
+    <meta property="og:description" content="Junior Software Engineer specializing in AI, web development, and game development. Explore my projects and blog.">
+    <meta property="og:image" content="assets/img/avatar1.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://abdessamadgrine.com/">
+    <meta property="twitter:title" content="Abdessamad Grine - Software Engineer Portfolio">
+    <meta property="twitter:description" content="Junior Software Engineer specializing in AI, web development, and game development.">
+    <meta property="twitter:image" content="assets/img/avatar1.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://abdessamadgrine.com/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    
     <!--=============== line and swiper ICONS ===============-->
     <link rel="stylesheet" href="https://cdn.lineicons.com/3.0/lineicons.css">
     <link href="https://vjs.zencdn.net/8.12.0/video-js.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/styles.css">
 
-    <title>Abdessamad Grine</title>
+    <title>Abdessamad Grine - Software Engineer Portfolio</title>
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Abdessamad Grine",
+      "jobTitle": "Junior Software Engineer",
+      "url": "https://abdessamadgrine.com",
+      "sameAs": [
+        "https://www.linkedin.com/in/abdessamad-grine/",
+        "https://github.com/Abdou-root",
+        "https://www.instagram.com/abdessamedgrine/"
+      ],
+      "image": "assets/img/avatar1.png",
+      "description": "Junior Software Engineer specializing in AI, web development, and game development. Currently pursuing a Bachelor's degree in Software Engineering at Sichuan University."
+    }
+    </script>
 </head>
 
 <body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+    
     <!--=============== HEADER ===============-->
-    <header class="header" id="header">
+    <header class="header" id="header" role="banner">
         <!--nav bar-->
-        <nav class="nav container padd-15">
+        <nav class="nav container padd-15" role="navigation" aria-label="Main navigation">
             <!--nav logo-->
-            <a href="#" class="nav-logo">
+            <a href="#" class="nav-logo" aria-label="Home">
                 <h2>Abdessamad</h2>
             </a>
             <!--nav menu-->
             <div class="nav-menu" id="nav-menu">
                 <!--nav list-->
-                <ul class="nav-list">
-                    <li class="nav-item">
-                        <a href="#home" class="nav-link active-link">Home</a>
+                <ul class="nav-list" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="#home" class="nav-link active-link" role="menuitem">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#about" class="nav-link">About</a>
+                    <li class="nav-item" role="none">
+                        <a href="#about" class="nav-link" role="menuitem">About</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#experience" class="nav-link">Experience</a>
+                    <li class="nav-item" role="none">
+                        <a href="#experience" class="nav-link" role="menuitem">Experience</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#projects" class="nav-link">Projects</a>
+                    <li class="nav-item" role="none">
+                        <a href="#projects" class="nav-link" role="menuitem">Projects</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#blog" class="nav-link">Blog</a>
+                    <li class="nav-item" role="none">
+                        <a href="#blog" class="nav-link" role="menuitem">Blog</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#contact" class="nav-link">Contact</a>
+                    <li class="nav-item" role="none">
+                        <a href="#contact" class="nav-link" role="menuitem">Contact</a>
                     </li>
                 </ul>
                 <!--nav close-->
-                <div class="nav-close" id="nav-close">
+                <button class="nav-close" id="nav-close" aria-label="Close menu">
                     <i class="lni lni-close"></i>
-                </div>
+                </button>
             </div>
             <!--nav button-->
             <div class="nav-btns">
                 <!--theme change button-->
-                <i class="lni lni-pallet change-theme" id="theme-button"></i>
+                <button class="change-theme" id="theme-button" aria-label="Change theme">
+                    <i class="lni lni-pallet"></i>
+                </button>
                 <!--toggle button-->
-                <div class="nav-toggle" id="nav-toggle">
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
                     <i class="lni lni-grid-alt"></i>
-                </div>
+                </button>
             </div>
         </nav>
     </header>
 
     <!--=============== MAIN ===============-->
-    <main class="main-content">
+    <main class="main-content" id="main-content" role="main">
         <!--=============== HOME ===============-->
         <section class="home" id="home">
             <div class="container">
                 <!-- intro -->
                 <div class="intro">
                     <!--avatar img-->
-                    <img src="assets/img/avatar1.png" height="200px" alt="Bolby">
+                    <img src="assets/img/avatar1.png" height="200px" alt="Abdessamad Grine">
                     <!--info-->
                     <h1>Abdessamad Grine</h1>
                     <span>I'm a <span class="info-text">Junior Software Engineer</span></span>
@@ -108,7 +157,7 @@
                 <div class="row">
                     <div class="about-img padd-15">
                         <!--avatar img-->
-                        <img src="assets/img/avatar2.png" alt="">
+                        <img src="assets/img/avatar2.png" alt="Abdessamad Grine">
                     </div>
                     <div class="about-content padd-15">
                         <div class="rounded">
@@ -325,7 +374,7 @@
                             <!-- Hidden video player -->
                             <div id="video-popup-chessAI" class="video-popup">
                                 <div class="video-popup-content">
-                                    <span class="close-video-popup" data-close-button="chessAI">&times;</span>
+                                    <button class="close-video-popup" data-close-button="chessAI" aria-label="Close video">&times;</button>
                                     <video id="my-video-chessAI" class="video-js vjs-theme-fantasy" controls muted
                                         preload="auto" height="310px" width="484px"
                                         poster="assets/img/chessAI-thumb.png" data-setup="{}">
@@ -471,7 +520,7 @@
                                     <video id="my-video-noFake" class="video-js vjs-theme-fantasy" controls
                                         preload="auto" height="310px" width="484px" poster="assets/img/NoFake-thumb.jpg"
                                         data-setup="{}">
-                                        <source src="assets/videos/watch_this_edit   .mp4" type="video/mp4" />
+                                        <source src="assets/videos/watch_this_edit.mp4" type="video/mp4" />
                                         <p class="vjs-no-js">
                                             To view this video please enable JavaScript, and consider upgrading to a web
                                             browser
@@ -504,7 +553,7 @@
                                     <span class="close-video-popup" data-close-button="ML">&times;</span>
                                     <video id="my-video-ML" class="video-js vjs-theme-fantasy" controls preload="auto"
                                         height="310px" width="484px" poster="assets/img/ML-thumb.jpg" data-setup="{}">
-                                        <source src="assets/videos/watch_this_edit   .mp4" type="video/mp4" />
+                                        <source src="assets/videos/watch_this_edit.mp4" type="video/mp4" />
                                         <p class="vjs-no-js">
                                             To view this video please enable JavaScript, and consider upgrading to a web
                                             browser
@@ -570,57 +619,18 @@
             <div class="container">
                 <!--section title-->
                 <h2 class="section-title padd-15">My Blog</h2>
-                <div class="row">
-                    <!--blog item-->
-                    <div class="blog-item padd-15">
-                        <div class="inner">
-                            <div class="thumb">
-                                <a href="#"><span class="category">Reviews</span></a>
-                                <a href="#"><img src="assets/img/5.svg" alt=""></a>
-                            </div>
-                            <div class="details">
-                                <h3 class="title"><a href="#">Trending technologies for frontend web development </a>
-                                </h3>
-                                <ul class="meta">
-                                    <li>09 July 2024</li>
-                                    <li>Abdessamad</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!--blog item-->
-                    <div class="blog-item padd-15">
-                        <div class="inner">
-                            <div class="thumb">
-                                <a href="#"><span class="category">Journey</span></a>
-                                <a href="#"><img src="assets/img/5.svg" alt=""></a>
-                            </div>
-                            <div class="details">
-                                <h3 class="title"><a href="#">Advice for young engineers and mistakes you can avoid </a>
-                                </h3>
-                                <ul class="meta">
-                                    <li>09 October 2024</li>
-                                    <li>Abdessamad</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!--blog item-->
-                    <div class="blog-item padd-15">
-                        <div class="inner">
-                            <div class="thumb">
-                                <a href="#"><span class="category">Tutorials</span></a>
-                                <a href="#"><img src="assets/img/5.svg" alt=""></a>
-                            </div>
-                            <div class="details">
-                                <h3 class="title"><a href="#">Easy and intuitive git commands you must know!</a></h3>
-                                <ul class="meta">
-                                    <li>09 August 2024</li>
-                                    <li>Abdessamad</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                <div class="row" id="blog-container">
+                    <!-- Blog items will be dynamically loaded here -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Blog Post Modal -->
+        <div id="blog-modal" class="blog-modal">
+            <div class="blog-modal-content">
+                <span class="blog-modal-close">&times;</span>
+                <div id="blog-modal-body" class="blog-modal-body">
+                    <!-- Blog post content will be loaded here -->
                 </div>
             </div>
         </div>
@@ -656,25 +666,31 @@
                         <div class="contact-inputs">
                             <!--contact content-->
                             <div class="contact-content">
-                                <input type="email" class="contact-input" id="email">
+                                <input type="email" class="contact-input" id="email" required minlength="5">
                                 <label for="email" class="contact-label">Email</label>
                                 <span></span>
+                                <span class="error-message" id="email-error"></span>
                             </div>
                             <!--contact content-->
                             <div class="contact-content">
-                                <input type="text" class="contact-input" id="subject">
+                                <input type="text" class="contact-input" id="subject" required minlength="3">
                                 <label for="subject" class="contact-label">Subject</label>
                                 <span></span>
+                                <span class="error-message" id="subject-error"></span>
                             </div>
                             <!--contact content-->
                             <div class="contact-content contact-area">
-                                <textarea id="message" cols="30" rows="10" class="contact-input"
-                                    id="message"></textarea>
+                                <textarea id="message" cols="30" rows="10" class="contact-input" required minlength="10"></textarea>
                                 <label for="message" class="contact-label">Message</label>
                                 <span></span>
+                                <span class="error-message" id="message-error"></span>
                             </div>
                         </div>
-                        <button type="button" class="btn btn-default" onclick="sendMail()">Send Me Message</button>
+                        <div id="form-status" class="form-status"></div>
+                        <button type="button" class="btn btn-default" id="send-button" onclick="sendMail()">
+                            <span id="send-button-text">Send Me Message</span>
+                            <span id="send-button-loader" class="loader" style="display: none;"></span>
+                        </button>
                     </form>
                 </div>
             </div>
@@ -683,7 +699,7 @@
         <footer class="footer">
             <div class="container">
                 <div class="footer-text padd-15">
-                    <p>&copy; Abdessmad Grine </p>
+                    <p>&copy; Abdessamad Grine </p>
                 </div>
             </div>
         </footer>
@@ -743,14 +759,23 @@
     <!--=============== JS ===============-->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
     </script>
+    <script src="config.js"></script>
     <script type="text/javascript">
         (function () {
-            emailjs.init({
-                publicKey: "pHwHdbkyf0LK1_M3i",
-            });
+            if (typeof EMAILJS_CONFIG !== 'undefined') {
+                emailjs.init({
+                    publicKey: EMAILJS_CONFIG.publicKey,
+                });
+            } else {
+                console.warn('EmailJS config not found. Using fallback.');
+                emailjs.init({
+                    publicKey: "pHwHdbkyf0LK1_M3i",
+                });
+            }
         })();
     </script>
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/blog.js"></script>
     <script src="https://vjs.zencdn.net/8.12.0/video.min.js"></script>
 </body>
 

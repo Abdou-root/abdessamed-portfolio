@@ -33,25 +33,33 @@ function scrollHeader() {
 
 window.addEventListener("scroll", scrollHeader)
 
-// /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
-// const sections = document.querySelectorAll("section[id]");
+/*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
+const sections = document.querySelectorAll("section[id]");
 
-// window.addEventListener("scroll", navHighlighter);
+window.addEventListener("scroll", navHighlighter);
 
-// function navHighlighter() {
-//     let scrollY = window.pageYOffset;
-//     sections.forEach(current => {
-//         const sectionHeight = current.offsetHeight;
-//         const sectionTop = current.offsetTop - 50;
-//         sectionId = current.getAttribute("id");
-//         if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-//             document.querySelector(".nav-menu a[href*=' + sectionId + ']'").classList.add("active-link")
-//         }
-//         else {
-//             document.querySelector(".nav-menu a[href*=' + sectionId + ']'").classList.remove("active-link")
-//         }
-//     })
-// }
+function navHighlighter() {
+    let scrollY = window.pageYOffset;
+    const headerHeight = document.getElementById("header").offsetHeight;
+    
+    sections.forEach(current => {
+        const sectionHeight = current.offsetHeight;
+        const sectionTop = current.offsetTop - headerHeight - 50;
+        const sectionId = current.getAttribute("id");
+        
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            // Remove active from all links first
+            document.querySelectorAll(".nav-link").forEach(link => {
+                link.classList.remove("active-link");
+            });
+            // Add active to current section's link
+            const activeLink = document.querySelector(`.nav-menu a[href="#${sectionId}"]`);
+            if (activeLink) {
+                activeLink.classList.add("active-link");
+            }
+        }
+    });
+}
 
 /*=============== PORTFOLIO ITEM FILTER ===============*/
 const filterContainer = document.querySelector(".portfolio-filter-inner"),
@@ -112,6 +120,24 @@ themeModal.addEventListener("click", closeThemeModal);
 
 /*===== FONTS =====*/
 
+// Load saved font size
+function loadFontSize() {
+    const savedFontSize = localStorage.getItem('fontSize');
+    if (savedFontSize) {
+        document.querySelector('html').style.fontSize = savedFontSize;
+        // Set active state
+        fontSizes.forEach(size => {
+            size.classList.remove('active');
+            if ((savedFontSize === '12px' && size.classList.contains('font-size-1')) ||
+                (savedFontSize === '14px' && size.classList.contains('font-size-2')) ||
+                (savedFontSize === '16px' && size.classList.contains('font-size-3')) ||
+                (savedFontSize === '18px' && size.classList.contains('font-size-4'))) {
+                size.classList.add('active');
+            }
+        });
+    }
+}
+
 // remove active from the font size class
 const removeSizeSelector = () => {
     fontSizes.forEach(size => {
@@ -136,10 +162,39 @@ fontSizes.forEach(size => {
             fontSize = '18px';
         }
         document.querySelector('html').style.fontSize = fontSize;
+        localStorage.setItem('fontSize', fontSize);
     })
 })
 
+// Load font size on page load
+loadFontSize();
+
 /*===== PRIMARY COLORS =====*/
+// Load saved color
+function loadColor() {
+    const savedHue = localStorage.getItem('primaryColorHue');
+    if (savedHue) {
+        root.style.setProperty('--primary-color-hue', savedHue);
+        // Set active state
+        colorPalette.forEach(color => {
+            color.classList.remove('active');
+            const hue = getHueFromColorClass(color);
+            if (hue && parseInt(hue) === parseInt(savedHue)) {
+                color.classList.add('active');
+            }
+        });
+    }
+}
+
+function getHueFromColorClass(color) {
+    if (color.classList.contains("color-1")) return 252;
+    if (color.classList.contains("color-2")) return 52;
+    if (color.classList.contains("color-3")) return 352;
+    if (color.classList.contains("color-4")) return 152;
+    if (color.classList.contains("color-5")) return 202;
+    return null;
+}
+
 // remove active class from colors
 const changeActiveColorClass = () => {
     colorPalette.forEach(colorPicker => {
@@ -168,9 +223,12 @@ colorPalette.forEach(color => {
         }
         color.classList.add("active");
         root.style.setProperty('--primary-color-hue', primaryHue);
-
+        localStorage.setItem('primaryColorHue', primaryHue);
     })
 })
+
+// Load color on page load
+loadColor();
 /*===== THEME BACKGROUNDS =====*/
 let lightColorLightness;
 let whiteColorLightness;
@@ -183,15 +241,47 @@ const changeBG = () => {
     root.style.setProperty('--dark-color-lightness', darkColorLightness);
 
 }
+// Load saved background
+function loadBackground() {
+    const savedBg = localStorage.getItem('backgroundTheme');
+    if (savedBg === 'bg-1') {
+        lightColorLightness = '92%';
+        whiteColorLightness = '100%';
+        darkColorLightness = '17%';
+        bg1.classList.add('active');
+        bg2.classList.remove('active');
+        bg3.classList.remove('active');
+        changeBG();
+    } else if (savedBg === 'bg-2') {
+        darkColorLightness = '95%';
+        whiteColorLightness = '20%';
+        lightColorLightness = '15%';
+        bg2.classList.add('active');
+        bg1.classList.remove('active');
+        bg3.classList.remove('active');
+        changeBG();
+    } else if (savedBg === 'bg-3') {
+        darkColorLightness = '95%';
+        whiteColorLightness = '10%';
+        lightColorLightness = '0%';
+        bg3.classList.add('active');
+        bg1.classList.remove('active');
+        bg2.classList.remove('active');
+        changeBG();
+    }
+}
+
 bg1.addEventListener('click', () => {
+    lightColorLightness = '92%';
+    whiteColorLightness = '100%';
+    darkColorLightness = '17%';
+    
     // add active
     bg1.classList.add('active');
     bg2.classList.remove('active');
     bg3.classList.remove('active');
     changeBG();
-
-    // remove from local
-    window.location.reload();
+    localStorage.setItem('backgroundTheme', 'bg-1');
 })
 bg2.addEventListener('click', () => {
     darkColorLightness = '95%';
@@ -203,6 +293,7 @@ bg2.addEventListener('click', () => {
     bg1.classList.remove('active');
     bg3.classList.remove('active');
     changeBG();
+    localStorage.setItem('backgroundTheme', 'bg-2');
 })
 
 bg3.addEventListener('click', () => {
@@ -215,18 +306,110 @@ bg3.addEventListener('click', () => {
     bg1.classList.remove('active');
     bg2.classList.remove('active');
     changeBG();
+    localStorage.setItem('backgroundTheme', 'bg-3');
 })
+
+// Load background on page load
+loadBackground();
 
 /*===== MailTo Button =====*/
 function sendMail() {
-    var params = {
-        subject : document.getElementById("subject").value,
-        email : document.getElementById("email").value,
-        message : document.getElementById("message").value
+    const emailInput = document.getElementById("email");
+    const subjectInput = document.getElementById("subject");
+    const messageInput = document.getElementById("message");
+    const sendButton = document.getElementById("send-button");
+    const sendButtonText = document.getElementById("send-button-text");
+    const sendButtonLoader = document.getElementById("send-button-loader");
+    const formStatus = document.getElementById("form-status");
+    
+    // Clear previous errors
+    clearFormErrors();
+    formStatus.textContent = '';
+    formStatus.className = 'form-status';
+    
+    // Validate form
+    let isValid = true;
+    
+    // Email validation
+    const emailValue = emailInput.value.trim();
+    if (!emailValue || emailValue.length < 5) {
+        showError("email-error", "Please enter a valid email address");
+        isValid = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)) {
+        showError("email-error", "Please enter a valid email format");
+        isValid = false;
     }
-    emailjs.send("service_uyh22pq", "template_yqu6yug", params).then(function (res){
-        alert("Success ! " + res.status);
-    })
+    
+    // Subject validation
+    const subjectValue = subjectInput.value.trim();
+    if (!subjectValue || subjectValue.length < 3) {
+        showError("subject-error", "Subject must be at least 3 characters");
+        isValid = false;
+    }
+    
+    // Message validation
+    const messageValue = messageInput.value.trim();
+    if (!messageValue || messageValue.length < 10) {
+        showError("message-error", "Message must be at least 10 characters");
+        isValid = false;
+    }
+    
+    if (!isValid) {
+        return;
+    }
+    
+    // Show loading state
+    sendButton.disabled = true;
+    sendButtonText.style.display = 'none';
+    sendButtonLoader.style.display = 'inline-block';
+    
+    const params = {
+        subject: subjectValue,
+        email: emailValue,
+        message: messageValue
+    };
+    
+    // Get EmailJS config
+    const serviceId = (typeof EMAILJS_CONFIG !== 'undefined') ? EMAILJS_CONFIG.serviceId : "service_uyh22pq";
+    const templateId = (typeof EMAILJS_CONFIG !== 'undefined') ? EMAILJS_CONFIG.templateId : "template_yqu6yug";
+    
+    emailjs.send(serviceId, templateId, params)
+        .then(function (res) {
+            // Success
+            formStatus.textContent = 'Message sent successfully!';
+            formStatus.className = 'form-status success';
+            emailInput.value = '';
+            subjectInput.value = '';
+            messageInput.value = '';
+        })
+        .catch(function (error) {
+            // Error
+            formStatus.textContent = 'Failed to send message. Please try again later.';
+            formStatus.className = 'form-status error';
+            console.error('EmailJS error:', error);
+        })
+        .finally(function () {
+            // Reset button state
+            sendButton.disabled = false;
+            sendButtonText.style.display = 'inline';
+            sendButtonLoader.style.display = 'none';
+        });
+}
+
+function showError(errorId, message) {
+    const errorElement = document.getElementById(errorId);
+    if (errorElement) {
+        errorElement.textContent = message;
+        errorElement.style.display = 'block';
+    }
+}
+
+function clearFormErrors() {
+    const errorElements = document.querySelectorAll('.error-message');
+    errorElements.forEach(el => {
+        el.textContent = '';
+        el.style.display = 'none';
+    });
 }
 
 /*===== Video Pop Up =====*/
@@ -235,7 +418,15 @@ document.querySelectorAll('.player').forEach(button => {
     button.addEventListener('click', function() {
         const videoId = this.getAttribute('data-video-button');
         const videoPopup = document.getElementById(`video-popup-${videoId}`);
+        const video = videoPopup.querySelector('video');
+        
+        // Show loading state
         videoPopup.style.display = 'flex';
+        
+        // Load video when popup opens
+        if (video) {
+            video.load();
+        }
     });
 });
 
