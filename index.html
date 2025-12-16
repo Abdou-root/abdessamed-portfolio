@@ -759,19 +759,14 @@
     <!--=============== JS ===============-->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
     </script>
-    <script src="config.js"></script>
     <script type="text/javascript">
+        // EmailJS Configuration
+        // Note: EmailJS public keys are safe to expose in client-side code
+        // Security is handled server-side by EmailJS through rate limiting and domain restrictions
         (function () {
-            if (typeof EMAILJS_CONFIG !== 'undefined') {
-                emailjs.init({
-                    publicKey: EMAILJS_CONFIG.publicKey,
-                });
-            } else {
-                console.warn('EmailJS config not found. Using fallback.');
-                emailjs.init({
-                    publicKey: "pHwHdbkyf0LK1_M3i",
-                });
-            }
+            emailjs.init({
+                publicKey: "pHwHdbkyf0LK1_M3i",
+            });
         })();
     </script>
     <script src="assets/js/script.js"></script>

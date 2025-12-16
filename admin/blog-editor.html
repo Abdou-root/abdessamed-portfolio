@@ -137,10 +137,59 @@
             cursor: pointer;
             font-size: var(--normal-font-size);
         }
+        .password-screen {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: var(--color-light);
+        }
+        .password-box {
+            background-color: var(--color-white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            max-width: 400px;
+            width: 90%;
+        }
+        .password-box h2 {
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .password-box input {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 2px solid var(--color-light);
+            border-radius: 0.5rem;
+            font-family: var(--body-font);
+        }
+        .password-box input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+        .password-error {
+            color: rgb(255, 70, 96);
+            font-size: var(--small-font-size);
+            margin-bottom: 1rem;
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <div class="editor-container">
+    <!-- Password Protection Screen -->
+    <div id="password-screen" class="password-screen">
+        <div class="password-box">
+            <h2>Blog Editor Access</h2>
+            <p style="text-align: center; color: var(--color-gray); margin-bottom: 1.5rem;">Enter password to access the editor</p>
+            <input type="password" id="password-input" placeholder="Enter password" autocomplete="off">
+            <div class="password-error" id="password-error">Incorrect password. Please try again.</div>
+            <button type="button" class="btn-save" onclick="checkPassword()" style="width: 100%;">Access Editor</button>
+        </div>
+    </div>
+    
+    <!-- Editor Content (hidden until password is correct) -->
+    <div id="editor-content" class="editor-container" style="display: none;">
         <div class="editor-header">
             <h1>Blog Post Editor</h1>
             <p>Create and edit blog posts for your portfolio</p>
@@ -222,7 +271,7 @@
         </form>
     </div>
     
-    <script src="../assets/js/editor.js"></script>
+    <script src="js/editor.js"></script>
 </body>
 </html>
 

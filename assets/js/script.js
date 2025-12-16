@@ -369,9 +369,10 @@ function sendMail() {
         message: messageValue
     };
     
-    // Get EmailJS config
-    const serviceId = (typeof EMAILJS_CONFIG !== 'undefined') ? EMAILJS_CONFIG.serviceId : "service_uyh22pq";
-    const templateId = (typeof EMAILJS_CONFIG !== 'undefined') ? EMAILJS_CONFIG.templateId : "template_yqu6yug";
+    // EmailJS Configuration
+    // These are public keys safe to expose in client-side code
+    const serviceId = "service_uyh22pq";
+    const templateId = "template_yqu6yug";
     
     emailjs.send(serviceId, templateId, params)
         .then(function (res) {

@@ -16,23 +16,23 @@ Personal portfolio website built with HTML, CSS, and JavaScript. Features a resp
 
 ### EmailJS Configuration
 
-1. Create a `config.js` file in the root directory:
-```javascript
-const EMAILJS_CONFIG = {
-    publicKey: "YOUR_PUBLIC_KEY",
-    serviceId: "YOUR_SERVICE_ID",
-    templateId: "YOUR_TEMPLATE_ID"
-};
-```
+The EmailJS configuration is already included in the code. EmailJS public keys are **safe to expose** in client-side code - they're designed to be public. Security is handled server-side by EmailJS through:
 
-2. The `config.js` file is already in `.gitignore` to prevent committing sensitive keys.
+- Rate limiting
+- Domain restrictions (configured in EmailJS dashboard)
+- Template validation
 
-3. If `config.js` is not found, the site will fall back to hardcoded values (not recommended for production).
+If you need to change the EmailJS keys, update them in:
+- `index.html` (line ~765): `publicKey` in `emailjs.init()`
+- `assets/js/script.js` (line ~373): `serviceId` and `templateId` in `sendMail()` function
 
 ### Blog System
 
 - Blog posts are stored in `assets/data/blog.json`
 - Use the blog editor at `admin/blog-editor.html` to create and manage posts
+  - **Password Protected**: The editor requires a password (default: `admin123`)
+  - **Change Password**: Edit `admin/js/editor.js` and change the `EDITOR_PASSWORD` constant
+  - **Security Note**: For production, consider excluding the `admin/` folder from deployment or implementing server-side authentication
 - The editor allows you to:
   - Write HTML content with a simple toolbar
   - Add image galleries
@@ -69,7 +69,6 @@ abdessamed-portfolio/
 │   ├── blog-editor.html
 │   └── js/
 │       └── editor.js
-├── config.js (create this file)
 ├── index.html
 └── README.md
 ```

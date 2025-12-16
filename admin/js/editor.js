@@ -1,5 +1,41 @@
 // Blog Editor JavaScript
 
+// Password Protection
+// IMPORTANT: Change this password to something secure!
+// For better security, consider using environment variables or server-side authentication
+const EDITOR_PASSWORD = "admin123"; // CHANGE THIS PASSWORD!
+
+function checkPassword() {
+    const input = document.getElementById('password-input').value;
+    const errorDiv = document.getElementById('password-error');
+    const passwordScreen = document.getElementById('password-screen');
+    const editorContent = document.getElementById('editor-content');
+    
+    if (input === EDITOR_PASSWORD) {
+        passwordScreen.style.display = 'none';
+        editorContent.style.display = 'block';
+        // Store session (expires when browser closes)
+        sessionStorage.setItem('blogEditorAuth', 'true');
+    } else {
+        errorDiv.style.display = 'block';
+        document.getElementById('password-input').value = '';
+        document.getElementById('password-input').focus();
+    }
+}
+
+// Check if already authenticated
+if (sessionStorage.getItem('blogEditorAuth') === 'true') {
+    document.getElementById('password-screen').style.display = 'none';
+    document.getElementById('editor-content').style.display = 'block';
+} else {
+    // Allow Enter key to submit password
+    document.getElementById('password-input').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            checkPassword();
+        }
+    });
+}
+
 let galleryCount = 1;
 
 // Format text in content editor
