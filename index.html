@@ -30,11 +30,21 @@
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/img/favicon.png">
-    
-    <!--=============== line and swiper ICONS ===============-->
-    <link rel="stylesheet" href="https://cdn.lineicons.com/3.0/lineicons.css">
-    <link href="https://vjs.zencdn.net/8.12.0/video-js.css" rel="stylesheet" />
+
+    <!-- Resource Hints for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.lineicons.com">
+    <link rel="dns-prefetch" href="https://vjs.zencdn.net">
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- Non-critical CSS - deferred loading -->
+    <link rel="stylesheet" href="https://cdn.lineicons.com/3.0/lineicons.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdn.lineicons.com/3.0/lineicons.css"></noscript>
+    <link rel="stylesheet" href="https://vjs.zencdn.net/8.12.0/video-js.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://vjs.zencdn.net/8.12.0/video-js.css"></noscript>
 
     <title>Abdessamad Grine - Software Engineer Portfolio</title>
     
@@ -119,7 +129,7 @@
                 <!-- intro -->
                 <div class="intro">
                     <!--avatar img-->
-                    <img src="assets/img/avatar1.png" height="200px" alt="Abdessamad Grine">
+                    <img src="assets/img/avatar1.png" width="200" height="200" alt="Abdessamad Grine">
                     <!--info-->
                     <h1>Abdessamad Grine</h1>
                     <span>I'm a <span class="info-text">Junior Software Engineer</span></span>
@@ -157,7 +167,7 @@
                 <div class="row">
                     <div class="about-img padd-15">
                         <!--avatar img-->
-                        <img src="assets/img/avatar2.png" alt="Abdessamad Grine">
+                        <img src="assets/img/avatar2.png" width="300" height="300" loading="lazy" alt="Abdessamad Grine">
                     </div>
                     <div class="about-content padd-15">
                         <div class="rounded">
@@ -172,7 +182,9 @@
                                         🍀 Growth for me is challenging myself and getting better with each project
                                     </p>
                                     <div>
-                                        <a href="https://drive.google.com/file/d/1ybAuAj_olArQpoXWvFFT4-YcfVIYnveh/view?usp=sharing" target="_blank" rel="noreferrer noopener" class="btn btn-default">Download CV</a>
+                                        <a href="assets/resume.pdf" download="Abdessamad_Grine_Resume.pdf" class="btn btn-default">
+                                            <i class="lni lni-download"></i> Download Resume
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="skills padd-15">
@@ -217,8 +229,8 @@
                         <i class="lni lni-thumbs-up">
                         </i>
                         <div class="details">
-                            <h3>14</h3>
-                            <p>Projects Done</p>
+                            <h3>3</h3>
+                            <p>Featured Projects</p>
                         </div>
 
                     </ul>
@@ -376,7 +388,7 @@
                                 <div class="video-popup-content">
                                     <button class="close-video-popup" data-close-button="chessAI" aria-label="Close video">&times;</button>
                                     <video id="my-video-chessAI" class="video-js vjs-theme-fantasy" controls muted
-                                        preload="auto" height="310px" width="484px"
+                                        preload="none" height="310" width="484"
                                         poster="assets/img/chessAI-thumb.png" data-setup="{}">
                                         <source src="assets/videos/chessAI.mp4" type="video/mp4" />
                                         <p class="vjs-no-js">
@@ -393,7 +405,7 @@
                         </div>
                         <div class="portfolio-item-inner">
                             <div class="portfolio-item-thumbnail">
-                                <img src="assets/img/chessAI-thumb.png" width="100%" height="100%">
+                                <img src="assets/img/chessAI-thumb.png" width="400" height="300" loading="lazy" alt="ChessAI project thumbnail">
                                 <div class="mask"></div>
                             </div>
                             <span class="term">Games</span>
@@ -403,42 +415,6 @@
                         </div>
                     </div>
 
-                    <!-- portfolio item soukAuto -->
-                    <div class="portfolio-item padd-15" data-category="web">
-                        <div class="video-player">
-                            <button class="player" data-video-button="soukAuto">Watch Demo</button>
-                            <!-- Hidden video player -->
-                            <div id="video-popup-soukAuto" class="video-popup">
-                                <div class="video-popup-content">
-                                    <span class="close-video-popup" data-close-button="soukAuto">&times;</span>
-                                    <video id="my-video-soukAuto" class="video-js vjs-theme-fantasy" controls
-                                        preload="auto" height="310px" width="484px"
-                                        poster="assets/img/soukAuto-thumb.png" data-setup="{}">
-                                        <source src="assets/videos/soukAuto.mp4" type="video/mp4" />
-                                        <p class="vjs-no-js">
-                                            To view this video please enable JavaScript, and consider upgrading to a web
-                                            browser
-                                            that
-                                            <a href="https://videojs.com/html5-video-support/" target="_blank">supports
-                                                HTML5
-                                                video</a>
-                                        </p>
-                                    </video>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="portfolio-item-inner">
-
-                            <div class="portfolio-item-thumbnail">
-                                <img src="assets/img/soukAuto-thumb.png" class="thumb-item">
-                                <div class="mask"></div>
-                            </div>
-                            <span class="term">Web Dev</span>
-                            <h3 class="portfolio-item-title">Souk Auto</h3>
-                            <span class="more-button"><a
-                                    href="https://github.com/Abdou-root/SoukAuto">&hellip;</a></span>
-                        </div>
-                    </div>
                     <!--portfolio item reconAI-->
                     <div class="portfolio-item padd-15" data-category="ai">
                         <div class="video-player">
@@ -448,7 +424,7 @@
                                 <div class="video-popup-content">
                                     <span class="close-video-popup" data-close-button="reconAI">&times;</span>
                                     <video id="my-video-reconAI" class="video-js vjs-theme-fantasy" controls
-                                        preload="auto" height="310px" width="484px"
+                                        preload="none" height="310" width="484"
                                         poster="assets/img/reconAI-thumb.png" data-setup="{}">
                                         <source src="assets/videos/reconAI.mp4" type="video/mp4" />
                                         <p class="vjs-no-js">
@@ -465,7 +441,7 @@
                         </div>
                         <div class="portfolio-item-inner">
                             <div class="portfolio-item-thumbnail">
-                                <img src="assets/img/reconAI-thumb.png" width="100%" height="100%">
+                                <img src="assets/img/reconAI-thumb.png" width="400" height="300" loading="lazy" alt="ReconAI project thumbnail">
                                 <div class="mask"></div>
                             </div>
                             <span class="term">AI (Computer Vision)</span>
@@ -483,7 +459,7 @@
                                 <div class="video-popup-content">
                                     <span class="close-video-popup" data-close-button="tastify">&times;</span>
                                     <video id="my-video-tastify" class="video-js vjs-theme-fantasy" controls
-                                        preload="auto" height="310px" width="484px"
+                                        preload="none" height="310" width="484"
                                         poster="assets/img/tastify-thumb.png" data-setup="{}">
                                         <source src="assets/videos/Tastify.mp4" type="video/mp4" />
                                         <p class="vjs-no-js">
@@ -500,7 +476,7 @@
                         </div>
                         <div class="portfolio-item-inner">
                             <div class="portfolio-item-thumbnail">
-                                <img src="assets/img/tastify-thumb.png" width="100%" height="100%">
+                                <img src="assets/img/tastify-thumb.png" width="400" height="300" loading="lazy" alt="Tastify project thumbnail">
                                 <div class="mask"></div>
                             </div>
                             <span class="term">Web Dev</span>
@@ -509,189 +485,84 @@
                                     href="https://github.com/Abdou-root/Tastify">&hellip;</a></span>
                         </div>
                     </div>
-                    <!--portfolio item-->
-                    <div class="portfolio-item padd-15" data-category="ai">
-                        <div class="video-player">
-                            <button class="player" data-video-button="noFake">Watch Demo</button>
-                            <!-- Hidden video player -->
-                            <div id="video-popup-noFake" class="video-popup">
-                                <div class="video-popup-content">
-                                    <span class="close-video-popup" data-close-button="noFake">&times;</span>
-                                    <video id="my-video-noFake" class="video-js vjs-theme-fantasy" controls
-                                        preload="auto" height="310px" width="484px" poster="assets/img/NoFake-thumb.jpg"
-                                        data-setup="{}">
-                                        <source src="assets/videos/watch_this_edit.mp4" type="video/mp4" />
-                                        <p class="vjs-no-js">
-                                            To view this video please enable JavaScript, and consider upgrading to a web
-                                            browser
-                                            that
-                                            <a href="https://videojs.com/html5-video-support/" target="_blank">supports
-                                                HTML5
-                                                video</a>
-                                        </p>
-                                    </video>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="portfolio-item-inner">
-                            <div class="portfolio-item-thumbnail">
-                                <img src="assets/img/NoFake-thumb.jpg" height="310px" class="thumb-item">
-                                <div class="mask"></div>
-                            </div>
-                            <span class="term">AI</span>
-                            <h3 class="portfolio-item-title">NoFake (Coming Soon)</h3>
-                            <span class="more-button"><a href="https://github.com/Abdou-root/NoFake">&hellip;</a></span>
-                        </div>
-                    </div>
-                    <!--portfolio item-->
-                    <div class="portfolio-item padd-15" data-category="ai">
-                        <div class="video-player">
-                            <button class="player" data-video-button="ML">Watch Demo</button>
-                            <!-- Hidden video player -->
-                            <div id="video-popup-ML" class="video-popup">
-                                <div class="video-popup-content">
-                                    <span class="close-video-popup" data-close-button="ML">&times;</span>
-                                    <video id="my-video-ML" class="video-js vjs-theme-fantasy" controls preload="auto"
-                                        height="310px" width="484px" poster="assets/img/ML-thumb.jpg" data-setup="{}">
-                                        <source src="assets/videos/watch_this_edit.mp4" type="video/mp4" />
-                                        <p class="vjs-no-js">
-                                            To view this video please enable JavaScript, and consider upgrading to a web
-                                            browser
-                                            that
-                                            <a href="https://videojs.com/html5-video-support/" target="_blank">supports
-                                                HTML5
-                                                video</a>
-                                        </p>
-                                    </video>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="portfolio-item-inner">
-                            <div class="portfolio-item-thumbnail">
-                                <img src="assets/img/ML-thumb.jpg" class="thumb-item">
-                                <div class="mask"></div> 
-                            </div>
-                            <span class="term">AI</span>
-                            <h3 class="portfolio-item-title">ML (Coming Soon)</h3>
-                            <span class="more-button"><a href="https://github.com/Abdou-root/ML">&hellip;</a></span>
-                        </div>
-                    </div>
-                    <!--portfolio item-->
-                    <div class="portfolio-item padd-15" data-category="web">
-                        <div class="video-player">
-                            <button class="player" data-video-button="student">Watch Demo</button>
-                            <!-- Hidden video player -->
-                            <div id="video-popup-student" class="video-popup">
-                                <div class="video-popup-content">
-                                    <span class="close-video-popup" data-close-button="student">&times;</span>
-                                    <video id="my-video-student" class="video-js vjs-theme-fantasy" controls
-                                        preload="auto" height="310px" width="484px"
-                                        poster="assets/img/student-thumb.png" data-setup="{}">
-                                        <source src="assets/videos/student-info-1.0.mp4" type="video/mp4" />
-                                        <p class="vjs-no-js">
-                                            To view this video please enable JavaScript, and consider upgrading to a web
-                                            browser
-                                            that
-                                            <a href="https://videojs.com/html5-video-support/" target="_blank">supports
-                                                HTML5
-                                                video</a>
-                                        </p>
-                                    </video>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="portfolio-item-inner">
-                            <div class="portfolio-item-thumbnail">
-                                <img src="assets/img/student-thumb.png" width="100%" height="100%">
-                                <div class="mask"></div>
-                            </div>
-                            <span class="term">Web Dev</span>
-                            <h3 class="portfolio-item-title">student-info-2.0</h3>
-                            <span class="more-button"><a
-                                    href="https://github.com/Abdou-root/student-info-system">&hellip;</a></span>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
         <!--=============== Blog ===============-->
-        <div class="blog section" id="blog">
+        <section class="blog section" id="blog">
             <div class="container">
                 <!--section title-->
-                <h2 class="section-title padd-15">My Blog</h2>
-                <div class="row" id="blog-container">
-                    <!-- Blog items will be dynamically loaded here -->
+                <h2 class="section-title padd-15">Featured Articles</h2>
+                <p class="blog-intro padd-15">Check out my latest thoughts on tech, development, and more on WisdomBytes.</p>
+
+                <div class="blog-grid">
+                    <!-- Blog Card 1 - Placeholder -->
+                    <article class="blog-card">
+                        <div class="blog-card-thumbnail">
+                            <img src="https://via.placeholder.com/400x200/352352/ffffff?text=Blog+Post+1" width="400" height="200" loading="lazy" alt="Blog post thumbnail">
+                        </div>
+                        <div class="blog-card-content">
+                            <h3 class="blog-card-title">Coming Soon</h3>
+                            <p class="blog-card-excerpt">This featured blog post will be linked from WisdomBytes. You'll provide the URL, title, and thumbnail.</p>
+                            <a href="https://wisdomybytes.netlify.app" target="_blank" rel="noopener noreferrer" class="blog-card-link">
+                                Read More <i class="lni lni-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Blog Card 2 - Placeholder -->
+                    <article class="blog-card">
+                        <div class="blog-card-thumbnail">
+                            <img src="https://via.placeholder.com/400x200/352352/ffffff?text=Blog+Post+2" width="400" height="200" loading="lazy" alt="Blog post thumbnail">
+                        </div>
+                        <div class="blog-card-content">
+                            <h3 class="blog-card-title">Coming Soon</h3>
+                            <p class="blog-card-excerpt">This featured blog post will be linked from WisdomBytes. You'll provide the URL, title, and thumbnail.</p>
+                            <a href="https://wisdomybytes.netlify.app" target="_blank" rel="noopener noreferrer" class="blog-card-link">
+                                Read More <i class="lni lni-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Blog Card 3 - Placeholder -->
+                    <article class="blog-card">
+                        <div class="blog-card-thumbnail">
+                            <img src="https://via.placeholder.com/400x200/352352/ffffff?text=Blog+Post+3" width="400" height="200" loading="lazy" alt="Blog post thumbnail">
+                        </div>
+                        <div class="blog-card-content">
+                            <h3 class="blog-card-title">Coming Soon</h3>
+                            <p class="blog-card-excerpt">This featured blog post will be linked from WisdomBytes. You'll provide the URL, title, and thumbnail.</p>
+                            <a href="https://wisdomybytes.netlify.app" target="_blank" rel="noopener noreferrer" class="blog-card-link">
+                                Read More <i class="lni lni-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="blog-cta">
+                    <a href="https://wisdomybytes.netlify.app" target="_blank" rel="noopener noreferrer" class="btn btn-default">
+                        View All Posts on WisdomBytes <i class="lni lni-arrow-right"></i>
+                    </a>
                 </div>
             </div>
-        </div>
-        
-        <!-- Blog Post Modal -->
-        <div id="blog-modal" class="blog-modal">
-            <div class="blog-modal-content">
-                <span class="blog-modal-close">&times;</span>
-                <div id="blog-modal-body" class="blog-modal-body">
-                    <!-- Blog post content will be loaded here -->
-                </div>
-            </div>
-        </div>
+        </section>
         <!--=============== Contact ===============-->
         <section class="contact section" id="contact">
             <div class="container">
                 <!--section title-->
                 <h2 class="section-title padd-15">Contact Me</h2>
-                <div class="row">
-                    <div class="contact-box padd-15">
-                        <!--contact box-->
-                        <div class="contact-data">
-                            <!--contact information-->
-                            <div class="contact-information">
-                                <h3 class="contact-subtitle">Call for support</h3>
-                                <span class="contact-description">
-                                    <i class="lni lni-phone contact-icon"></i>
-                                    +86 199 1550 4212
-                                </span>
-                            </div>
-                            <!--contact information-->
-                            <div class="contact-information">
-                                <h3 class="contact-subtitle">Shoot an Email</h3>
-                                <span class="contact-description">
-                                    <i class="lni lni-envelope contact-icon"></i>
-                                    grineabdessamed2003@gmail.com
-                                </span>
-                            </div>
+                <div class="contact-content-wrapper">
+                    <p class="contact-intro">Have a project in mind or want to collaborate? I'd love to hear from you.</p>
+                    <div class="contact-methods">
+                        <a href="mailto:grineabdessamed2003@gmail.com?subject=Portfolio%20Inquiry" class="btn btn-default contact-email-btn">
+                            <i class="lni lni-envelope"></i>
+                            Send Email
+                        </a>
+                        <div class="contact-info">
+                            <p><i class="lni lni-envelope"></i> grineabdessamed2003@gmail.com</p>
+                            <p><i class="lni lni-phone"></i> +86 199 1550 4212</p>
                         </div>
                     </div>
-                    <!--contact form-->
-                    <form action="#" class="contact-form padd-15">
-                        <div class="contact-inputs">
-                            <!--contact content-->
-                            <div class="contact-content">
-                                <input type="email" class="contact-input" id="email" required minlength="5">
-                                <label for="email" class="contact-label">Email</label>
-                                <span></span>
-                                <span class="error-message" id="email-error"></span>
-                            </div>
-                            <!--contact content-->
-                            <div class="contact-content">
-                                <input type="text" class="contact-input" id="subject" required minlength="3">
-                                <label for="subject" class="contact-label">Subject</label>
-                                <span></span>
-                                <span class="error-message" id="subject-error"></span>
-                            </div>
-                            <!--contact content-->
-                            <div class="contact-content contact-area">
-                                <textarea id="message" cols="30" rows="10" class="contact-input" required minlength="10"></textarea>
-                                <label for="message" class="contact-label">Message</label>
-                                <span></span>
-                                <span class="error-message" id="message-error"></span>
-                            </div>
-                        </div>
-                        <div id="form-status" class="form-status"></div>
-                        <button type="button" class="btn btn-default" id="send-button" onclick="sendMail()">
-                            <span id="send-button-text">Send Me Message</span>
-                            <span id="send-button-loader" class="loader" style="display: none;"></span>
-                        </button>
-                    </form>
                 </div>
             </div>
         </section>
@@ -757,21 +628,8 @@
     </div>
 
     <!--=============== JS ===============-->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-    </script>
-    <script type="text/javascript">
-        // EmailJS Configuration
-        // Note: EmailJS public keys are safe to expose in client-side code
-        // Security is handled server-side by EmailJS through rate limiting and domain restrictions
-        (function () {
-            emailjs.init({
-                publicKey: "pHwHdbkyf0LK1_M3i",
-            });
-        })();
-    </script>
     <script src="assets/js/script.js"></script>
-    <script src="assets/js/blog.js"></script>
-    <script src="https://vjs.zencdn.net/8.12.0/video.min.js"></script>
+    <script src="https://vjs.zencdn.net/8.12.0/video.min.js" defer></script>
 </body>
 
 </html>
