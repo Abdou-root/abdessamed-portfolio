@@ -35,7 +35,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.lineicons.com">
-    <link rel="dns-prefetch" href="https://vjs.zencdn.net">
 
     <!-- Critical CSS -->
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -43,8 +42,6 @@
     <!-- Non-critical CSS - deferred loading -->
     <link rel="stylesheet" href="https://cdn.lineicons.com/3.0/lineicons.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdn.lineicons.com/3.0/lineicons.css"></noscript>
-    <link rel="stylesheet" href="https://vjs.zencdn.net/8.12.0/video-js.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://vjs.zencdn.net/8.12.0/video-js.css"></noscript>
 
     <title>Abdessamad Grine - Software Engineer Portfolio</title>
     
@@ -62,7 +59,7 @@
         "https://www.instagram.com/abdessamedgrine/"
       ],
       "image": "assets/img/avatar1.png",
-      "description": "Junior Software Engineer specializing in AI, web development, and game development. Currently pursuing a Bachelor's degree in Software Engineering at Sichuan University."
+      "description": "Software Engineer specializing in AI, web development, and game development. MSc student at Harbin Institute of Technology."
     }
     </script>
 </head>
@@ -110,8 +107,9 @@
             <!--nav button-->
             <div class="nav-btns">
                 <!--theme change button-->
-                <button class="change-theme" id="theme-button" aria-label="Change theme">
-                    <i class="lni lni-pallet"></i>
+                <button class="theme-toggle" id="theme-button" aria-label="Customize theme">
+                    <i class="lni lni-cog"></i>
+                    <span class="theme-tooltip">Theme</span>
                 </button>
                 <!--toggle button-->
                 <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
@@ -132,7 +130,7 @@
                     <img src="assets/img/avatar1.png" width="200" height="200" alt="Abdessamad Grine">
                     <!--info-->
                     <h1>Abdessamad Grine</h1>
-                    <span>I'm a <span class="info-text">Junior Software Engineer</span></span>
+                    <span>I'm a <span class="info-text">Software Engineer</span></span>
                     <!--social icons-->
                     <ul class="social-icons">
                         <li><a href="https://www.instagram.com/abdessamedgrine/"><i
@@ -174,16 +172,15 @@
                             <div class="row">
                                 <div class="about-text padd-15">
                                     <!--about text-->
-                                    <p> 🏫 I'm a senior in Software Engineering at Sichuan University, focused on
-                                        leveraging tech for real-world solutions. My studies mix theory with
-                                        practice, highlighted by various projects, which range from a gym tracking web
-                                        app to an AI chess engine, gaining proficiency in Python, C++, SQL, JavaScript,
-                                        and frontend web dev.<br>
+                                    <p> 🏫 I'm a Master's student in Computer Science at Harbin Institute of Technology (HIT),
+                                        with a BSc in Software Engineering from Sichuan University. Passionate about
+                                        leveraging tech for real-world solutions through projects ranging from AI chess engines
+                                        to web applications. Proficient in Python, C++, SQL, JavaScript, and frontend development.<br>
                                         🍀 Growth for me is challenging myself and getting better with each project
                                     </p>
                                     <div>
-                                        <a href="assets/resume.pdf" download="Abdessamad_Grine_Resume.pdf" class="btn btn-default">
-                                            <i class="lni lni-download"></i> Download Resume
+                                        <a href="assets/resume.pdf" download="Abdessamad_Grine_Resume.pdf" class="resume-btn">
+                                            <i class="lni lni-download"></i> Resume
                                         </a>
                                     </div>
                                 </div>
@@ -276,88 +273,60 @@
                 <div class="row">
                     <!--education-->
                     <div class="education padd-15">
+                        <h3 class="timeline-section-title"><i class="lni lni-graduation"></i> Education</h3>
                         <div class="row">
                             <div class="timeline-box">
                                 <div class="timeline">
-                                    <!--timeline item-->
+                                    <!--timeline item - HIT-->
                                     <div class="timeline-item">
                                         <i class="lni lni-graduation timeline-icon"></i>
                                         <h3 class="timeline-date">
-                                            <i class="lni lni-calendar"></i> 2019-Present
+                                            <i class="lni lni-calendar"></i> Sept 2025 - Present
                                         </h3>
-                                        <h3 class="timeline-title">Freelance Developer</h3>
-                                        <p class="timeline-text">Exploring personal projects and contributing to help
-                                            businesses and clients get a head-start</p>
+                                        <h3 class="timeline-title">Harbin Institute of Technology (HIT)</h3>
+                                        <p class="timeline-text">MSc in Computer Science</p>
+                                        <span class="timeline-location"><i class="lni lni-map-marker"></i> Shenzhen, China</span>
                                     </div>
-                                    <!--timeline item-->
+                                    <!--timeline item - Sichuan University-->
                                     <div class="timeline-item">
                                         <i class="lni lni-graduation timeline-icon"></i>
                                         <h3 class="timeline-date">
-                                            <i class="lni lni-calendar"></i> 2021-Present
+                                            <i class="lni lni-calendar"></i> Aug 2021 - June 2025
                                         </h3>
-                                        <h3 class="timeline-title">Bachelor's Degree</h3>
-                                        <p class="timeline-text">Bsc in Software Engineering at 四川大学,<br> Senior Year
-                                        </p>
-                                    </div>
-                                    <!--timeline item-->
-                                    <div class="timeline-item">
-                                        <i class="lni lni-graduation timeline-icon"></i>
-                                        <h3 class="timeline-date">
-                                            <i class="lni lni-calendar"></i> 2018-2021
-                                        </h3>
-                                        <h3 class="timeline-title">High School</h3>
-                                        <p class="timeline-text">Mathematics Graduate from Ali Mellah High School
-                                            Algeria</p>
+                                        <h3 class="timeline-title">Sichuan University</h3>
+                                        <p class="timeline-text">BSc in Software Engineering</p>
+                                        <span class="gpa-badge">GPA: 3.7/4.0</span>
+                                        <span class="timeline-location"><i class="lni lni-map-marker"></i> Chengdu, China</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
-                    <!--experience-->
+                    <!--professional experience-->
                     <div class="education padd-15">
-                        <!--education-->
+                        <h3 class="timeline-section-title"><i class="lni lni-briefcase"></i> Professional Experience</h3>
                         <div class="row">
                             <div class="timeline-box">
                                 <div class="timeline">
-                                    <!--timeline item-->
+                                    <!--timeline item - Suncaper-->
                                     <div class="timeline-item">
                                         <i class="lni lni-briefcase timeline-icon"></i>
                                         <h3 class="timeline-date">
-                                            <i class="lni lni-calendar"></i> Since 2018
+                                            <i class="lni lni-calendar"></i> March 2024 - May 2024
                                         </h3>
-                                        <h3 class="timeline-title">Python</h3>
-                                        <p class="timeline-text">Several projects in Python allowed me to be proficient
-                                            and comfortable in most of its usages</p>
-                                    </div>
-                                    <!--timeline item-->
-                                    <div class="timeline-item">
-                                        <i class="lni lni-briefcase timeline-icon"></i>
-                                        <h3 class="timeline-date">
-                                            <i class="lni lni-calendar"></i> 2021-Present
-                                        </h3>
-                                        <h3 class="timeline-title">Front-End Web Development</h3>
-                                        <p class="timeline-text">Having had experience with graphic design, using UI
-                                            skills in frontend is always a seamless combo</p>
-                                    </div>
-                                    <!--timeline item-->
-                                    <div class="timeline-item">
-                                        <i class="lni lni-briefcase timeline-icon"></i>
-                                        <h3 class="timeline-date">
-                                            <i class="lni lni-calendar"></i> Since 2021
-                                        </h3>
-                                        <h3 class="timeline-title">AI enthusiast</h3>
-                                        <p class="timeline-text">Diving into different AI fields such as Computer
-                                            Vision, Neural Networks and LLMs</p>
+                                        <h3 class="timeline-title">Big Data Intern</h3>
+                                        <p class="timeline-company">Suncaper, Ltd</p>
+                                        <ul class="timeline-responsibilities">
+                                            <li>Engineered data pipelines using Spark/Hadoop for large-scale data processing</li>
+                                            <li>Developed Python automation scripts with MySQL integration</li>
+                                            <li>Collaborated with multidisciplinary teams on backend solutions</li>
+                                        </ul>
+                                        <span class="timeline-location"><i class="lni lni-map-marker"></i> Chengdu, China</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
-
-
                 </div>
             </div>
         </section>
@@ -373,121 +342,144 @@
                             <button type="button" data-filter="games">Games</button>
                             <button type="button" data-filter="ai">AI</button>
                             <button type="button" data-filter="web">Web Dev</button>
-
                         </div>
                     </div>
                 </div>
                 <div class="row">
-
-                    <!--portfolio item chessAI-->
-                    <div class="portfolio-item padd-15" data-category="games">
-                        <div class="video-player">
-                            <button class="player" data-video-button="chessAI">Watch Demo</button>
-                            <!-- Hidden video player -->
-                            <div id="video-popup-chessAI" class="video-popup">
-                                <div class="video-popup-content">
-                                    <button class="close-video-popup" data-close-button="chessAI" aria-label="Close video">&times;</button>
-                                    <video id="my-video-chessAI" class="video-js vjs-theme-fantasy" controls muted
-                                        preload="none" height="310" width="484"
-                                        poster="assets/img/chessAI-thumb.png" data-setup="{}">
-                                        <source src="assets/videos/chessAI.mp4" type="video/mp4" />
-                                        <p class="vjs-no-js">
-                                            To view this video please enable JavaScript, and consider upgrading to a web
-                                            browser
-                                            that
-                                            <a href="https://videojs.com/html5-video-support/" target="_blank">supports
-                                                HTML5
-                                                video</a>
-                                        </p>
-                                    </video>
+                    <!--portfolio item DzBrothers-->
+                    <div class="portfolio-item padd-15" data-category="web">
+                        <div class="project-card" data-project="dzbrothers">
+                            <div class="project-card-thumbnail">
+                                <img src="assets/img/dzbrothers-thumb.png" width="400" height="300" loading="lazy" alt="DzBrothers project thumbnail">
+                                <div class="project-card-overlay">
+                                    <span class="project-card-view">View Project</span>
+                                </div>
+                            </div>
+                            <div class="project-card-info">
+                                <span class="project-card-category">Web Dev</span>
+                                <h3 class="project-card-title">DzBrothers</h3>
+                                <div class="project-card-tags">
+                                    <span>React</span>
+                                    <span>Node.js</span>
+                                    <span>MongoDB</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="portfolio-item-inner">
-                            <div class="portfolio-item-thumbnail">
-                                <img src="assets/img/chessAI-thumb.png" width="400" height="300" loading="lazy" alt="ChessAI project thumbnail">
-                                <div class="mask"></div>
+                    </div>
+
+                    <!--portfolio item RepoLens-->
+                    <div class="portfolio-item padd-15" data-category="ai">
+                        <div class="project-card" data-project="repolens">
+                            <div class="project-card-thumbnail">
+                                <img src="assets/img/repolens-thumb.png" width="400" height="300" loading="lazy" alt="RepoLens project thumbnail">
+                                <div class="project-card-overlay">
+                                    <span class="project-card-view">View Project</span>
+                                </div>
                             </div>
-                            <span class="term">Games</span>
-                            <h3 class="portfolio-item-title">ChessAI</h3>
-                            <span class="more-button"><a
-                                    href="https://github.com/Abdou-root/Chess-AI">&hellip;</a></span>
+                            <div class="project-card-info">
+                                <span class="project-card-category">AI</span>
+                                <h3 class="project-card-title">RepoLens</h3>
+                                <div class="project-card-tags">
+                                    <span>Python</span>
+                                    <span>LLM</span>
+                                    <span>GitHub API</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--portfolio item chessAI-->
+                    <div class="portfolio-item padd-15" data-category="games">
+                        <div class="project-card" data-project="chessai">
+                            <div class="project-card-thumbnail">
+                                <img src="assets/img/chessAI-thumb.png" width="400" height="300" loading="lazy" alt="ChessAI project thumbnail">
+                                <div class="project-card-overlay">
+                                    <span class="project-card-view">View Project</span>
+                                </div>
+                            </div>
+                            <div class="project-card-info">
+                                <span class="project-card-category">Games</span>
+                                <h3 class="project-card-title">ChessAI</h3>
+                                <div class="project-card-tags">
+                                    <span>Python</span>
+                                    <span>Pygame</span>
+                                    <span>AI</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <!--portfolio item reconAI-->
                     <div class="portfolio-item padd-15" data-category="ai">
-                        <div class="video-player">
-                            <button class="player" data-video-button="reconAI">Watch Demo</button>
-                            <!-- Hidden video player -->
-                            <div id="video-popup-reconAI" class="video-popup">
-                                <div class="video-popup-content">
-                                    <span class="close-video-popup" data-close-button="reconAI">&times;</span>
-                                    <video id="my-video-reconAI" class="video-js vjs-theme-fantasy" controls
-                                        preload="none" height="310" width="484"
-                                        poster="assets/img/reconAI-thumb.png" data-setup="{}">
-                                        <source src="assets/videos/reconAI.mp4" type="video/mp4" />
-                                        <p class="vjs-no-js">
-                                            To view this video please enable JavaScript, and consider upgrading to a web
-                                            browser
-                                            that
-                                            <a href="https://videojs.com/html5-video-support/" target="_blank">supports
-                                                HTML5
-                                                video</a>
-                                        </p>
-                                    </video>
+                        <div class="project-card" data-project="reconai">
+                            <div class="project-card-thumbnail">
+                                <img src="assets/img/reconAI-thumb.png" width="400" height="300" loading="lazy" alt="ReconAI project thumbnail">
+                                <div class="project-card-overlay">
+                                    <span class="project-card-view">View Project</span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="portfolio-item-inner">
-                            <div class="portfolio-item-thumbnail">
-                                <img src="assets/img/reconAI-thumb.png" width="400" height="300" loading="lazy" alt="ReconAI project thumbnail">
-                                <div class="mask"></div>
+                            <div class="project-card-info">
+                                <span class="project-card-category">AI (Computer Vision)</span>
+                                <h3 class="project-card-title">ReconAI</h3>
+                                <div class="project-card-tags">
+                                    <span>Python</span>
+                                    <span>OpenCV</span>
+                                    <span>Deep Learning</span>
+                                </div>
                             </div>
-                            <span class="term">AI (Computer Vision)</span>
-                            <h3 class="portfolio-item-title">ReconAI</h3>
-                            <span class="more-button"><a
-                                    href="https://github.com/Abdou-root/ReconAI">&hellip;</a></span>
                         </div>
                     </div>
+
                     <!--portfolio item Tastify-->
                     <div class="portfolio-item padd-15" data-category="web">
-                        <div class="video-player">
-                            <button class="player" data-video-button="tastify">Watch Demo</button>
-                            <!-- Hidden video player -->
-                            <div id="video-popup-tastify" class="video-popup">
-                                <div class="video-popup-content">
-                                    <span class="close-video-popup" data-close-button="tastify">&times;</span>
-                                    <video id="my-video-tastify" class="video-js vjs-theme-fantasy" controls
-                                        preload="none" height="310" width="484"
-                                        poster="assets/img/tastify-thumb.png" data-setup="{}">
-                                        <source src="assets/videos/Tastify.mp4" type="video/mp4" />
-                                        <p class="vjs-no-js">
-                                            To view this video please enable JavaScript, and consider upgrading to a web
-                                            browser
-                                            that
-                                            <a href="https://videojs.com/html5-video-support/" target="_blank">supports
-                                                HTML5
-                                                video</a>
-                                        </p>
-                                    </video>
+                        <div class="project-card" data-project="tastify">
+                            <div class="project-card-thumbnail">
+                                <img src="assets/img/tastify-thumb.png" width="400" height="300" loading="lazy" alt="Tastify project thumbnail">
+                                <div class="project-card-overlay">
+                                    <span class="project-card-view">View Project</span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="portfolio-item-inner">
-                            <div class="portfolio-item-thumbnail">
-                                <img src="assets/img/tastify-thumb.png" width="400" height="300" loading="lazy" alt="Tastify project thumbnail">
-                                <div class="mask"></div>
+                            <div class="project-card-info">
+                                <span class="project-card-category">Web Dev</span>
+                                <h3 class="project-card-title">Tastify</h3>
+                                <div class="project-card-tags">
+                                    <span>JavaScript</span>
+                                    <span>HTML/CSS</span>
+                                    <span>API</span>
+                                </div>
                             </div>
-                            <span class="term">Web Dev</span>
-                            <h3 class="portfolio-item-title">Tastify</h3>
-                            <span class="more-button"><a
-                                    href="https://github.com/Abdou-root/Tastify">&hellip;</a></span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!--=============== Project Modal ===============-->
+        <div class="project-modal" id="project-modal">
+            <div class="project-modal-content">
+                <button class="project-modal-close" aria-label="Close modal">&times;</button>
+                <div class="project-modal-header">
+                    <h2 class="project-modal-title"></h2>
+                    <div class="project-modal-tags"></div>
+                </div>
+                <p class="project-modal-description"></p>
+                <div class="project-gallery">
+                    <button class="gallery-nav gallery-prev" aria-label="Previous image">
+                        <i class="lni lni-chevron-left"></i>
+                    </button>
+                    <div class="gallery-container">
+                        <img class="gallery-image" src="" alt="Project screenshot">
+                    </div>
+                    <button class="gallery-nav gallery-next" aria-label="Next image">
+                        <i class="lni lni-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="gallery-dots"></div>
+                <a href="" target="_blank" rel="noopener noreferrer" class="project-modal-github">
+                    <i class="lni lni-github-original"></i> View on GitHub
+                </a>
+            </div>
+        </div>
         <!--=============== Blog ===============-->
         <section class="blog section" id="blog">
             <div class="container">
@@ -496,43 +488,43 @@
                 <p class="blog-intro padd-15">Check out my latest thoughts on tech, development, and more on WisdomBytes.</p>
 
                 <div class="blog-grid">
-                    <!-- Blog Card 1 - Placeholder -->
+                    <!-- Blog Card 1 - Git Commands -->
                     <article class="blog-card">
                         <div class="blog-card-thumbnail">
-                            <img src="https://via.placeholder.com/400x200/352352/ffffff?text=Blog+Post+1" width="400" height="200" loading="lazy" alt="Blog post thumbnail">
+                            <img src="assets/img/blog1.jpg" width="400" height="200" loading="lazy" alt="Git Commands You Must Know">
                         </div>
                         <div class="blog-card-content">
-                            <h3 class="blog-card-title">Coming Soon</h3>
-                            <p class="blog-card-excerpt">This featured blog post will be linked from WisdomBytes. You'll provide the URL, title, and thumbnail.</p>
-                            <a href="https://wisdomybytes.netlify.app" target="_blank" rel="noopener noreferrer" class="blog-card-link">
+                            <h3 class="blog-card-title">Git Commands You Must Know</h3>
+                            <p class="blog-card-excerpt">Essential Git commands from beginner to intermediate level. Master version control with practical examples for init, add, commit, and push.</p>
+                            <a href="https://wisdomybytes.netlify.app/posts/696ce67efff4578ea7596a3a" target="_blank" rel="noopener noreferrer" class="blog-card-link">
                                 Read More <i class="lni lni-arrow-right"></i>
                             </a>
                         </div>
                     </article>
 
-                    <!-- Blog Card 2 - Placeholder -->
+                    <!-- Blog Card 2 - Frontend Technologies -->
                     <article class="blog-card">
                         <div class="blog-card-thumbnail">
-                            <img src="https://via.placeholder.com/400x200/352352/ffffff?text=Blog+Post+2" width="400" height="200" loading="lazy" alt="Blog post thumbnail">
+                            <img src="assets/img/blog2.jpg" width="400" height="200" loading="lazy" alt="Frontend Technologies in 2026">
                         </div>
                         <div class="blog-card-content">
-                            <h3 class="blog-card-title">Coming Soon</h3>
-                            <p class="blog-card-excerpt">This featured blog post will be linked from WisdomBytes. You'll provide the URL, title, and thumbnail.</p>
-                            <a href="https://wisdomybytes.netlify.app" target="_blank" rel="noopener noreferrer" class="blog-card-link">
+                            <h3 class="blog-card-title">Frontend Technologies in 2026</h3>
+                            <p class="blog-card-excerpt">Explore the trending frontend technologies shaping web development in 2026. From React to Svelte, discover what frameworks you should care about.</p>
+                            <a href="https://wisdomybytes.netlify.app/posts/696cfc8bfff4578ea7596a8d" target="_blank" rel="noopener noreferrer" class="blog-card-link">
                                 Read More <i class="lni lni-arrow-right"></i>
                             </a>
                         </div>
                     </article>
 
-                    <!-- Blog Card 3 - Placeholder -->
+                    <!-- Blog Card 3 - Advice for Engineers -->
                     <article class="blog-card">
                         <div class="blog-card-thumbnail">
-                            <img src="https://via.placeholder.com/400x200/352352/ffffff?text=Blog+Post+3" width="400" height="200" loading="lazy" alt="Blog post thumbnail">
+                            <img src="assets/img/blog3.jpg" width="400" height="200" loading="lazy" alt="Advice for Young Engineers">
                         </div>
                         <div class="blog-card-content">
-                            <h3 class="blog-card-title">Coming Soon</h3>
-                            <p class="blog-card-excerpt">This featured blog post will be linked from WisdomBytes. You'll provide the URL, title, and thumbnail.</p>
-                            <a href="https://wisdomybytes.netlify.app" target="_blank" rel="noopener noreferrer" class="blog-card-link">
+                            <h3 class="blog-card-title">Advice for Young Engineers</h3>
+                            <p class="blog-card-excerpt">Common mistakes early-career engineers make and how to avoid them. Learn practical strategies for sustainable growth in your engineering career.</p>
+                            <a href="https://wisdomybytes.netlify.app/posts/696cfd17fff4578ea7596aa2" target="_blank" rel="noopener noreferrer" class="blog-card-link">
                                 Read More <i class="lni lni-arrow-right"></i>
                             </a>
                         </div>
@@ -629,7 +621,6 @@
 
     <!--=============== JS ===============-->
     <script src="assets/js/script.js"></script>
-    <script src="https://vjs.zencdn.net/8.12.0/video.min.js" defer></script>
 </body>
 
 </html>

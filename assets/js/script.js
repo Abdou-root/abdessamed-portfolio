@@ -312,38 +312,174 @@ bg3.addEventListener('click', () => {
 // Load background on page load
 loadBackground();
 
-/*===== Video Pop Up =====*/
-// Generalized event listener for showing video popup
-document.querySelectorAll('.player').forEach(button => {
-    button.addEventListener('click', function() {
-        const videoId = this.getAttribute('data-video-button');
-        const videoPopup = document.getElementById(`video-popup-${videoId}`);
-        const video = videoPopup.querySelector('video');
-        
-        // Show loading state
-        videoPopup.style.display = 'flex';
-        
-        // Load video when popup opens
-        if (video) {
-            video.load();
+/*===== Project Modal & Gallery =====*/
+const projectData = {
+    chessai: {
+        title: "ChessAI",
+        description: "A fully functional chess game with an AI opponent powered by the Minimax algorithm with alpha-beta pruning. Features include move validation, check/checkmate detection, and adjustable AI difficulty levels.",
+        tags: ["Python", "Pygame", "AI", "Minimax"],
+        github: "https://github.com/Abdou-root/Chess-AI",
+        images: [
+            "assets/img/projects/chessai/1.png",
+            "assets/img/projects/chessai/2.png",
+            "assets/img/projects/chessai/3.png",
+            "assets/img/projects/chessai/4.png"
+        ]
+    },
+    reconai: {
+        title: "ReconAI",
+        description: "An AI-powered facial recognition system using deep learning and computer vision techniques. Implements face detection, feature extraction, and real-time identification with high accuracy.",
+        tags: ["Python", "OpenCV", "Deep Learning", "TensorFlow"],
+        github: "https://github.com/Abdou-root/ReconAI",
+        images: [
+            "assets/img/projects/reconai/1.png",
+            "assets/img/projects/reconai/2.png",
+            "assets/img/projects/reconai/3.png",
+            "assets/img/projects/reconai/4.png"
+        ]
+    },
+    tastify: {
+        title: "Tastify",
+        description: "A recipe discovery web application that helps users find recipes based on available ingredients. Features include search functionality, recipe filtering, nutritional information, and a clean, responsive UI.",
+        tags: ["JavaScript", "HTML/CSS", "API Integration", "Responsive Design"],
+        github: "https://github.com/Abdou-root/Tastify",
+        images: [
+            "assets/img/projects/tastify/1.png",
+            "assets/img/projects/tastify/2.png",
+            "assets/img/projects/tastify/3.png",
+            "assets/img/projects/tastify/4.png"
+        ]
+    },
+    dzbrothers: {
+        title: "DzBrothers",
+        description: "A full-stack web application connecting the Algerian community. Features user authentication, real-time messaging, event management, and a modern responsive interface.",
+        tags: ["React", "Node.js", "MongoDB", "Express"],
+        github: "https://github.com/Abdou-root/DzBrothers",
+        images: [
+            "assets/img/projects/dzbrothers/1.png",
+            "assets/img/projects/dzbrothers/2.png",
+            "assets/img/projects/dzbrothers/3.png",
+            "assets/img/projects/dzbrothers/4.png"
+        ]
+    },
+    repolens: {
+        title: "RepoLens",
+        description: "An AI-powered GitHub repository analyzer that uses LLMs to provide intelligent insights about codebases. Analyzes code structure, documentation quality, and suggests improvements.",
+        tags: ["Python", "LLM", "GitHub API", "NLP"],
+        github: "https://github.com/Abdou-root/RepoLens",
+        images: [
+            "assets/img/projects/repolens/1.png",
+            "assets/img/projects/repolens/2.png",
+            "assets/img/projects/repolens/3.png",
+            "assets/img/projects/repolens/4.png"
+        ]
+    }
+};
+
+const projectModal = document.getElementById('project-modal');
+const modalTitle = projectModal.querySelector('.project-modal-title');
+const modalDescription = projectModal.querySelector('.project-modal-description');
+const modalTags = projectModal.querySelector('.project-modal-tags');
+const modalGithub = projectModal.querySelector('.project-modal-github');
+const galleryImage = projectModal.querySelector('.gallery-image');
+const galleryDots = projectModal.querySelector('.gallery-dots');
+const galleryPrev = projectModal.querySelector('.gallery-prev');
+const galleryNext = projectModal.querySelector('.gallery-next');
+const modalClose = projectModal.querySelector('.project-modal-close');
+
+let currentProject = null;
+let currentImageIndex = 0;
+
+// Open modal
+document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('click', function() {
+        const projectId = this.getAttribute('data-project');
+        const project = projectData[projectId];
+
+        if (project) {
+            currentProject = project;
+            currentImageIndex = 0;
+
+            modalTitle.textContent = project.title;
+            modalDescription.textContent = project.description;
+            modalGithub.href = project.github;
+
+            // Set tags
+            modalTags.innerHTML = project.tags.map(tag => `<span>${tag}</span>`).join('');
+
+            // Set gallery
+            updateGallery();
+
+            // Create dots
+            galleryDots.innerHTML = project.images.map((_, i) =>
+                `<span class="dot ${i === 0 ? 'active' : ''}" data-index="${i}"></span>`
+            ).join('');
+
+            // Add dot click listeners
+            galleryDots.querySelectorAll('.dot').forEach(dot => {
+                dot.addEventListener('click', function() {
+                    currentImageIndex = parseInt(this.getAttribute('data-index'));
+                    updateGallery();
+                });
+            });
+
+            projectModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
     });
 });
 
-// Generalized event listener for closing video popup
-document.querySelectorAll('.close-video-popup').forEach(closeButton => {
-    closeButton.addEventListener('click', function() {
-        const videoId = this.getAttribute('data-close-button');
-        const videoPopup = document.getElementById(`video-popup-${videoId}`);
-        const video = videoPopup.querySelector('video');
-        videoPopup.style.display = 'none';
-        video.pause();
-        video.currentTime = 0;
-    });
+// Update gallery image and dots
+function updateGallery() {
+    if (currentProject && currentProject.images.length > 0) {
+        galleryImage.src = currentProject.images[currentImageIndex];
+        galleryImage.alt = `${currentProject.title} screenshot ${currentImageIndex + 1}`;
+
+        galleryDots.querySelectorAll('.dot').forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentImageIndex);
+        });
+    }
+}
+
+// Gallery navigation
+galleryPrev.addEventListener('click', function() {
+    if (currentProject) {
+        currentImageIndex = (currentImageIndex - 1 + currentProject.images.length) % currentProject.images.length;
+        updateGallery();
+    }
 });
 
-window.addEventListener('click', function(event) {
-    if (event.target.classList.contains('video-popup')) {
-        event.target.style.display = "none";
+galleryNext.addEventListener('click', function() {
+    if (currentProject) {
+        currentImageIndex = (currentImageIndex + 1) % currentProject.images.length;
+        updateGallery();
+    }
+});
+
+// Close modal
+function closeProjectModal() {
+    projectModal.classList.remove('active');
+    document.body.style.overflow = '';
+    currentProject = null;
+}
+
+modalClose.addEventListener('click', closeProjectModal);
+
+projectModal.addEventListener('click', function(e) {
+    if (e.target === projectModal) {
+        closeProjectModal();
+    }
+});
+
+// Keyboard navigation
+document.addEventListener('keydown', function(e) {
+    if (!projectModal.classList.contains('active')) return;
+
+    if (e.key === 'Escape') {
+        closeProjectModal();
+    } else if (e.key === 'ArrowLeft') {
+        galleryPrev.click();
+    } else if (e.key === 'ArrowRight') {
+        galleryNext.click();
     }
 });
