@@ -340,8 +340,8 @@ const projectData = {
     },
     tastify: {
         title: "Tastify",
-        description: "A recipe discovery web application that helps users find recipes based on available ingredients. Features include search functionality, recipe filtering, nutritional information, and a clean, responsive UI.",
-        tags: ["JavaScript", "HTML/CSS", "API Integration", "Responsive Design"],
+        description: "A data analysis project exploring food and recipe trends using Python. Performs exploratory data analysis, visualizations, and statistical insights on recipe datasets with Pandas and Matplotlib.",
+        tags: ["Python", "Pandas", "Matplotlib", "Data Analysis"],
         github: "https://github.com/Abdou-root/Tastify",
         images: [
             "assets/img/projects/tastify/1.png",
@@ -353,7 +353,7 @@ const projectData = {
     dzbrothers: {
         title: "DzBrothers",
         description: "A full-stack web application connecting the Algerian community. Features user authentication, real-time messaging, event management, and a modern responsive interface.",
-        tags: ["React", "Node.js", "MongoDB", "Express"],
+        tags: ["React", "Node.js", "Supabase", "Express"],
         github: "https://github.com/Abdou-root/DzBrothers",
         images: [
             "assets/img/projects/dzbrothers/1.png",
@@ -364,8 +364,8 @@ const projectData = {
     },
     repolens: {
         title: "RepoLens",
-        description: "An AI-powered GitHub repository analyzer that uses LLMs to provide intelligent insights about codebases. Analyzes code structure, documentation quality, and suggests improvements.",
-        tags: ["Python", "LLM", "GitHub API", "NLP"],
+        description: "An AI-powered GitHub repository analyzer that uses LLMs to provide intelligent insights about codebases. Built with FastAPI backend, analyzes code structure, documentation quality, and suggests improvements.",
+        tags: ["Python", "FastAPI", "LLM", "GitHub API"],
         github: "https://github.com/Abdou-root/RepoLens",
         images: [
             "assets/img/projects/repolens/1.png",

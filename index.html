@@ -35,6 +35,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.lineicons.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdn.lineicons.com">
+
+    <!-- Preload critical assets -->
+    <link rel="preload" href="assets/css/styles.css" as="style">
+    <link rel="preload" href="assets/js/script.js" as="script">
+    <link rel="preload" href="assets/img/avatar1.png" as="image">
 
     <!-- Critical CSS -->
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -127,7 +134,7 @@
                 <!-- intro -->
                 <div class="intro">
                     <!--avatar img-->
-                    <img src="assets/img/avatar1.png" width="200" height="200" alt="Abdessamad Grine">
+                    <img src="assets/img/avatar1.png" width="200" height="200" alt="Abdessamad Grine" fetchpriority="high">
                     <!--info-->
                     <h1>Abdessamad Grine</h1>
                     <span>I'm a <span class="info-text">Software Engineer</span></span>
@@ -226,7 +233,7 @@
                         <i class="lni lni-thumbs-up">
                         </i>
                         <div class="details">
-                            <h3>3</h3>
+                            <h3>5</h3>
                             <p>Featured Projects</p>
                         </div>
 
@@ -246,7 +253,7 @@
                         <i class="lni lni-cup">
                         </i>
                         <div class="details">
-                            <h3>5</h3>
+                            <h3>14</h3>
                             <p>Collaborations</p>
                         </div>
 
@@ -285,6 +292,10 @@
                                         </h3>
                                         <h3 class="timeline-title">Harbin Institute of Technology (HIT)</h3>
                                         <p class="timeline-text">MSc in Computer Science</p>
+                                        <ul class="timeline-responsibilities">
+                                            <li>Focusing on AI/ML research and distributed systems</li>
+                                            <li>Teaching Assistant for undergraduate programming courses</li>
+                                        </ul>
                                         <span class="timeline-location"><i class="lni lni-map-marker"></i> Shenzhen, China</span>
                                     </div>
                                     <!--timeline item - Sichuan University-->
@@ -296,6 +307,10 @@
                                         <h3 class="timeline-title">Sichuan University</h3>
                                         <p class="timeline-text">BSc in Software Engineering</p>
                                         <span class="gpa-badge">GPA: 3.7/4.0</span>
+                                        <ul class="timeline-responsibilities">
+                                            <li>Graduated with honors in Software Engineering</li>
+                                            <li>Completed coursework in algorithms, databases, and software architecture</li>
+                                        </ul>
                                         <span class="timeline-location"><i class="lni lni-map-marker"></i> Chengdu, China</span>
                                     </div>
                                 </div>
@@ -308,6 +323,21 @@
                         <div class="row">
                             <div class="timeline-box">
                                 <div class="timeline">
+                                    <!--timeline item - Freelance-->
+                                    <div class="timeline-item">
+                                        <i class="lni lni-briefcase timeline-icon"></i>
+                                        <h3 class="timeline-date">
+                                            <i class="lni lni-calendar"></i> June 2024 - Present
+                                        </h3>
+                                        <h3 class="timeline-title">Freelance Developer</h3>
+                                        <p class="timeline-company">Self-Employed</p>
+                                        <ul class="timeline-responsibilities">
+                                            <li>Developed custom web applications and automation tools for clients</li>
+                                            <li>Built full-stack solutions using React, Node.js, and Python</li>
+                                            <li>Delivered projects on time while maintaining high code quality</li>
+                                        </ul>
+                                        <span class="timeline-location"><i class="lni lni-map-marker"></i> Remote</span>
+                                    </div>
                                     <!--timeline item - Suncaper-->
                                     <div class="timeline-item">
                                         <i class="lni lni-briefcase timeline-icon"></i>
@@ -361,7 +391,7 @@
                                 <div class="project-card-tags">
                                     <span>React</span>
                                     <span>Node.js</span>
-                                    <span>MongoDB</span>
+                                    <span>Supabase</span>
                                 </div>
                             </div>
                         </div>
@@ -381,8 +411,8 @@
                                 <h3 class="project-card-title">RepoLens</h3>
                                 <div class="project-card-tags">
                                     <span>Python</span>
+                                    <span>FastAPI</span>
                                     <span>LLM</span>
-                                    <span>GitHub API</span>
                                 </div>
                             </div>
                         </div>
@@ -431,7 +461,7 @@
                     </div>
 
                     <!--portfolio item Tastify-->
-                    <div class="portfolio-item padd-15" data-category="web">
+                    <div class="portfolio-item padd-15" data-category="ai">
                         <div class="project-card" data-project="tastify">
                             <div class="project-card-thumbnail">
                                 <img src="assets/img/tastify-thumb.png" width="400" height="300" loading="lazy" alt="Tastify project thumbnail">
@@ -440,12 +470,12 @@
                                 </div>
                             </div>
                             <div class="project-card-info">
-                                <span class="project-card-category">Web Dev</span>
+                                <span class="project-card-category">Data Analysis</span>
                                 <h3 class="project-card-title">Tastify</h3>
                                 <div class="project-card-tags">
-                                    <span>JavaScript</span>
-                                    <span>HTML/CSS</span>
-                                    <span>API</span>
+                                    <span>Python</span>
+                                    <span>Pandas</span>
+                                    <span>Matplotlib</span>
                                 </div>
                             </div>
                         </div>
@@ -620,7 +650,7 @@
     </div>
 
     <!--=============== JS ===============-->
-    <script src="assets/js/script.js"></script>
+    <script src="assets/js/script.js" defer></script>
 </body>
 
 </html>
